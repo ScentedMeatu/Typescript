@@ -111,3 +111,24 @@ var Circle = /** @class */ (function () {
 }());
 console.log(Circle.PI);
 console.log(Circle.area(5));
+//polymorphism
+var Shape = /** @class */ (function () {
+    function Shape() {
+    }
+    Shape.prototype.draw = function () {
+        return "Drawing a shape.";
+    };
+    return Shape;
+}());
+var CircleShape = /** @class */ (function (_super) {
+    __extends(CircleShape, _super);
+    function CircleShape() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    CircleShape.prototype.draw = function () {
+        return "Drawing a circle.";
+    };
+    return CircleShape;
+}(Shape));
+var shapes = [new Shape(), new CircleShape()];
+shapes.forEach(function (shape) { return console.log(shape.draw()); });

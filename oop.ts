@@ -105,3 +105,19 @@ class Circle {
 
 console.log(Circle.PI);
 console.log(Circle.area(5));
+
+//polymorphism
+class Shape {
+    draw(): string {
+        return "Drawing a shape.";
+    }
+}
+
+class CircleShape extends Shape {
+    draw(): string {
+        return "Drawing a circle.";
+    }
+}
+
+const shapes: Shape[] = [new Shape(), new CircleShape()];
+shapes.forEach(shape => console.log(shape.draw()));
